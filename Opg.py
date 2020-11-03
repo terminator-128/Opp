@@ -175,5 +175,5 @@ while tk!='#':
             print('E')
             break
     elif pk=='error':
-        print('E233')
+        print('E')
         break
