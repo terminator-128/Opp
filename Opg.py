@@ -88,8 +88,7 @@ O = [' ']
 S = [' '] # 初始栈内含有 '#'
 
 # 输入字符串T
-T = list(sentence+' #') # 输入字符末尾删'\r | \n'添'#'
-print(T)
+T = list(sentence[:-1]+' #') # 输入字符末尾删'\r | \n'添'#'
 
 # 栈顶字符 tp
 tp = O[-1]
@@ -164,6 +163,7 @@ while tk!='#':
         tk = T[0]
         # 输入字符是否为识别符号
         if tk not in Vt:
+            print('E')
             break
     elif pk=='error':
         print('E')
