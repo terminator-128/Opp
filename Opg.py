@@ -53,18 +53,18 @@ Cmp = {
 #      +  *  (  )  i  #
 #   +  >  <  <  >  <  >
 #   *  >  >  <  >  <  >
-#   (  <  <  <  =  <  0
+#   (  <  <  <  =  <  >
 #   )  >  >  0  >  0  >
 #   i  >  >  0  >  0  >
-#   #  <  <  <  0  <  =
+#   #  <  <  <  <  <  =
 
 PM = [
     [ 3, 1, 1, 3, 1, 3],
     [ 3, 3, 1, 3, 1, 3],
-    [ 1, 1, 1, 2, 1, 0],
+    [ 1, 1, 1, 2, 1, 3],
     [ 3, 3, 0, 3, 0, 3],
     [ 3, 3, 0, 3, 0, 3],
-    [ 1, 1, 1, 0, 1, 2],
+    [ 1, 1, 1, 1, 1, 2],
 ]
 
 # 输入参数为文件名
@@ -126,7 +126,7 @@ while tk!='#':
     pk = Cmp[PM[Opt[tp]][Opt[tk]]]
     if pk=='>':
         if tp=='+' or tp=='*':
-            if S[-3:]==['N',tp,'N']:
+            if len(S)>=3 and S[-3:]==['N',tp,'N']:
                 print('R')
                 S = S[:-3]
                 S.append('N')
@@ -135,7 +135,7 @@ while tk!='#':
                 print('RE')
                 break
         elif tp==')':
-            if S[-3:]==['(','N',')']:
+            if len(S)>=3 and S[-3:]==['(','N',')']:
                 print('R')
                 S = S[:-3]
                 S.append('N')
@@ -148,6 +148,15 @@ while tk!='#':
             S.pop()
             S.append('N')
             O.pop()
+        elif tp==' ':
+            if len(S)>=3 and S[-3:0]==[' ','N',' ']:
+                break
+            else:
+                print('RE')
+                break
+        else:
+            print('RE')
+            break
             
     elif pk=='<' or pk=='=':
         # 读入符号入栈
@@ -166,5 +175,5 @@ while tk!='#':
             print('E')
             break
     elif pk=='error':
-        print('E')
+        print('E233')
         break
