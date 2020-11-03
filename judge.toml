@@ -1,0 +1,5 @@
+[jobs.opg]
+image = {source = "dockerfile", path = ".", tag = "opg"}
+run = [
+  "python -l $input -o $output",
+]
