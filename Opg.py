@@ -1,4 +1,7 @@
 # Operator-Precedence Parser
+# #!/usr/bin/env python
+# coding: utf-8
+
 
 # 语法G定义规则集合
 # E -> E'+'T | T
