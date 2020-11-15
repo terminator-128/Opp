@@ -149,7 +149,7 @@ while tk!='#':
             S.append('N')
             O.pop()
         elif tp==' ':
-            if len(S)>=3 and S[-3:0]==[' ','N',' ']:
+            if len(S)>=3 and S[-3:]==[' ','N',' ']:
                 break
             else:
                 print('RE')
